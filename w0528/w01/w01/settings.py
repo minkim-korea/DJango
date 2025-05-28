@@ -1,4 +1,5 @@
 
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zrwxm3+4&r&ts7f+g5&=yo^=x8t(qwvs3ap%npsznkh6qptb#7'
+SECRET_KEY = 'django-insecure-6bqd!k(vg4h@gj=h49j3q2uif^-s079k#q(*re9761n^1g3olu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +41,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'wrestapi.urls'
+ROOT_URLCONF = 'w01.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wrestapi.wsgi.application'
+WSGI_APPLICATION = 'w01.wsgi.application'
 
 
 # Database
