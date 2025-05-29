@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponseRedirect
 from student.models import Student
+# from django.http import HttpResponseRedirect
 #학생정보 삭제
 
 def delete(request,name):
@@ -12,13 +12,7 @@ def delete(request,name):
 
  #학생정보 수정   
 def update(request,name):
-    if request.method =='GET' :
-        print("학생이름:",name)
-        qs = Student.objects.get(name=name)
-        context = {'stu':qs}
-        return render (request,"student/update.html",context)
-    else:  
-        
+    if request.method =='POST' :
          name2= request.POST.get("name")
          major= request.POST.get("major")
          grade= request.POST.get("grade")
@@ -36,6 +30,13 @@ def update(request,name):
          qs.save()
          print("Student 객체 수정")
          return redirect("/student/list/")
+       
+    else:  
+        print("학생이름:",name)
+        qs = Student.objects.get(name=name)
+        context = {'stu':qs}
+        return render (request,"student/update.html",context)
+        
    
 #학생정보 상세보기 
 def view(request):
@@ -77,3 +78,29 @@ def list(request):
        context={'list':qs}
        return render(request,"student/list.html",context)
    
+#  #학생정보 수정   
+# def update(request,name):
+#     if request.method =='GET' :
+#         print("학생이름:",name)
+#         qs = Student.objects.get(name=name)
+#         context = {'stu':qs}
+#         return render (request,"student/update.html",context)
+#     else:  
+        
+#          name2= request.POST.get("name")
+#          major= request.POST.get("major")
+#          grade= request.POST.get("grade")
+#          age= request.POST.get("age")
+#          gender= request.POST.get("gender")
+#          print("입력된 정보 :" ,name,major,grade,age,gender)
+#          #db수정 1.회원검색
+#          qs = Student.objects.get(name=name)
+#          #2.회원정보수정 
+#          qs.name = name2
+#          qs.major =major
+#          qs.grade= grade
+#          qs.age= age
+#          qs.gender=gender
+#          qs.save()
+#          print("Student 객체 수정")
+#          return redirect("/student/list/")
