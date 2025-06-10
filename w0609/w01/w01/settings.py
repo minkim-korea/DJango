@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# 프로젝트 디렉토리 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -30,6 +31,7 @@ INSTALLED_APPS = [
     'board',
     'member',
     'product',
+    'comment',
 ]
 
 MIDDLEWARE = [
