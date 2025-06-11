@@ -4,12 +4,14 @@ from board.models import Board
 from django.db.models import F,Q 
 #F : 검색된모든데이터 적용시 , Q또는 검색 
 from member.models import Member
-## 상세페이지 get  
+from comment.models import Comment
+## 상세페이지 get  -하단댓글 포함
 def view(request,bno):
     print("넘어온 데이터 :" ,bno)
     #현재글
     qs =Board.objects.filter(bno=bno)
-# 이전글
+
+    # 이전글
     pre_qs = Board.objects.filter(
        Q(ntchk__lte=qs[0].ntchk,bgroup__lt=qs[0].bgroup,bstep__lte=qs[0].bstep)|
        Q(ntchk=qs[0].ntchk,bgroup__lt=qs[0].bgroup)
@@ -23,7 +25,10 @@ def view(request,bno):
     # print('이전글 : ',pre_qs.bno)
     # print('다음글 : ',next_qs.bno)
     
-    context = {'board':qs[0],'pre_board':pre_qs,'next_board':next_qs}
+    #하단댓글
+    c_qs = Comment.objects.filter(board=qs[0]).order_by('-cno')
+    print("하단댓글 데이터:",c_qs)
+    context = {'board':qs[0],'pre_board':pre_qs,'next_board':next_qs,"comment":c_qs}
     return render(request,"board/view.html",context)
 
 ##게시판글쓰기 -get post
