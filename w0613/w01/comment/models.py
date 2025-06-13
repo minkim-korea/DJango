@@ -2,6 +2,7 @@ from django.db import models
 from board.models import Board
 from member.models import Member
 
+
 class Comment(models.Model):
     cno = models.AutoField(primary_key=True)
     board = models.ForeignKey(Board,on_delete=models.CASCADE) #게시글삭제시 하단댓글모두삭제
@@ -12,3 +13,4 @@ class Comment(models.Model):
     
     def __str__(self):
         return f'{self.cno},{self.member.id},{self.ccontent}'
+   

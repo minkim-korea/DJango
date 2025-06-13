@@ -1,5 +1,5 @@
-{%load static%}
-	<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html>
 <head>
 <title> JARDIN SHOP </title>
@@ -90,7 +90,7 @@ $(document).ready(function() {
 	<div id="header">
 		
 		<div id="snbBox">
-			<a href="/">
+			<a href='/'>
 				<h1><img src="/static/images/txt/logo.gif" alt="JARDIN SHOP" /></h1>
 			</a>
 			<div id="quickmenu">
@@ -231,7 +231,7 @@ $(document).ready(function() {
 								<th scope="col" class="tnone">조회수</th>
 							</thead>
 							<tbody>
-								{%for board in list %}
+								{% for board in list %}
 								<tr>
 									<td class="tnone">{{board.bno}}</td>
 									<td class="left">

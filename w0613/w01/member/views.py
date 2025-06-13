@@ -1,4 +1,4 @@
 from django.shortcuts import render,redirect
 
-def list (request):
+def list(request):
     return redirect('/')
