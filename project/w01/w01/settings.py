@@ -1,4 +1,5 @@
 import os 
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_4ikq#9ou$$=+)hhn@=if^dokfy5dw#6b42j4=+g-z6v61q-63'
+SECRET_KEY = 'django-insecure-j@be0du)cnbfu@6rde169&o(7^61p(&-+huve%lse_x08tc*6s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -20,16 +21,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',
-    'member',
-    'board',
-    'chart',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +59,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'w01.wsgi.application'
-
+ASGI_APPLICATION  =  'w01.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -95,9 +94,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'ko-kr'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Seoul'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -108,16 +107,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# static파일 위치 설정 - 현재root 모든 static폴더를 가져옴
-# 정적파일 : css,js,image
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'),
-)
-### 파일업로드 위치
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-# MEDIA_ROOT = 'c:/aaa' # 로컬드라이브 설정
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
